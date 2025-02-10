@@ -1,0 +1,8 @@
+repeat 2 [
+  repeat 4 [
+    penup;
+    forward 20;
+    pendown;
+    backward 20
+  ]
+]

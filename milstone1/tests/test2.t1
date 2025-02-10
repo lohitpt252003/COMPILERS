@@ -1,0 +1,4 @@
+input (:sX, :sY)
+:width = 100;
+:height = 200;
+go (:width, :height)

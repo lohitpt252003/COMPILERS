@@ -1,0 +1,4 @@
+if (!false) [
+  penup;
+  forward 100
+]

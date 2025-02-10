@@ -1,0 +1,6 @@
+penup;
+pendown;
+forward 10;
+backward 10;
+left 45;
+right 45

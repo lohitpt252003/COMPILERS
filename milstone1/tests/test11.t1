@@ -1,0 +1,2 @@
+:sum = (10 + 20) * 3 - 5;
+forward :sum

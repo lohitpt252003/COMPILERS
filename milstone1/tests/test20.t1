@@ -1,0 +1,16 @@
+input (:startX, :startY)
+:x = :startX;
+:y = :startY;
+if (:x == 0) [
+  :x = 50
+] else [
+  :x = 100
+];
+repeat 3 [
+  penup;
+  forward :x;
+  pendown;
+  backward :x;
+  left 90
+];
+go (:x, :y)

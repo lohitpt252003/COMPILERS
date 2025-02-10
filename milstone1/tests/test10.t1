@@ -1,0 +1,5 @@
+:angle = 45;
+repeat 4 [
+  left :angle;
+  forward 20
+]

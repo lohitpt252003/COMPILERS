@@ -1,0 +1,7 @@
+:counter = 5;
+repeat :counter [
+  if (:counter > 0) [
+    :counter = :counter - 1;
+    right 90
+  ]
+]

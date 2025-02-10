@@ -1,0 +1,5 @@
+repeat 3 [
+  :x = 10;
+  forward :x;
+  left 90
+]

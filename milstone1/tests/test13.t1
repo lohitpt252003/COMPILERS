@@ -1,0 +1,5 @@
+if ((:x <= 50) ∥ (:y > 100)) [
+  backward 10
+] else [
+  forward 10
+]

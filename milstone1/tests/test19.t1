@@ -1,0 +1,6 @@
+repeat 2 [
+  if (:x > 10 && :y < 20) [
+    left 45;
+    forward 30
+  ]
+]
