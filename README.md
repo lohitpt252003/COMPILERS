@@ -1,60 +1,95 @@
-# COMPILERS
+**GitHub Repository**: [https://github.com/lohitpt252003/COMPILERS.git](https://github.com/lohitpt252003/COMPILERS.git)  
+**Team Members**:  
+- LOHIT P TALAVAR (210564)  
+- KARTAVYA (180343)  
+- P LOKESH NAYAK (210710)  
 
-**Members**
-LOHIT P TALAVAR 210564
+---
 
+## **Milestone 1**
 
+---
 
-**Milestone 1**
-# token.py
-"""
-This module implements the tokenizer for CHIRONLANG.
-It converts a CHIRONLANG source string into a list of tokens.
-Each token stores:
-  - type (e.g., NUMBER, IDENT, KEYWORD, SYMBOL, UNKNOWN)
-  - value (the string form of the token)
-  - line and column (starting position in the source)
+### **1. `token.py`**
 
-The keywords (per the document) are:
-    if, else, repeat, penup, pendown, forward, backward,
-    left, right, go, true, false, input
+The `token.py` module implements the **tokenizer** for CHIRONLANG. It converts a CHIRONLANG source string into a list of tokens. Each token contains the following information:
 
-Variables are expected to start with a colon (":").
-Operators such as ==, !=, <=, >=, &&, ∥ (or ||) are supported.
-"""
+- **Type**: The category of the token (e.g., `NUMBER`, `IDENTIFIER`, `KEYWORD`, `OPERATOR`, etc.).
+- **Value**: The string representation of the token.
+- **Line and Column**: The starting position of the token in the source code for debugging and error reporting.
 
+#### **Supported Keywords**
+The following keywords are recognized by the tokenizer:
+```
+if, else, repeat, penup, pendown, forward, backward,
+left, right, go, true, false, input
+```
 
+#### **Additional Features**
+- Variables in CHIRONLANG start with a colon (`:`).
+- Supported operators include:
+  - Comparison: `==`, `!=`, `<=`, `>=`, `<`, `>`
+  - Logical: `&&`, `||` (or `∥`)
+  - Arithmetic: `+`, `-`, `*`, `/`
 
-# ast.py
-"""
-This module defines the Abstract Syntax Tree (AST) node classes for CHIRONLANG.
-Each AST node stores its location (line and column) where applicable, so that
-debugging and error reporting can later use this information.
+---
 
-The AST covers the following constructs:
-  - Program: a sequence of statements.
-  - Assignment: variable = expression.
-  - IfStatement: with optional else clause.
-  - RepeatStatement: loop structure.
-  - PenStatement: penup or pendown.
-  - MoveStatement: forward, backward, left, right, or go.
-  - BinaryOp and UnaryOp: binary and unary operations.
-  - Number: numeric literal.
-  - Var: variable (which in CHIRONLANG starts with a colon).
+### **2. `ast.py`**
 
-Variables in CHIRONLANG are represented as identifiers beginning with a colon.
-"""
+The `ast.py` module defines the **Abstract Syntax Tree (AST)** node classes for CHIRONLANG. Each AST node stores its location (line and column) to support debugging and error reporting.
 
+#### **AST Constructs**
+The AST supports the following constructs:
+- **Program**: A sequence of statements.
+- **Assignment**: Variable assignment (`variable = expression`).
+- **IfStatement**: Conditional statement with an optional `else` clause.
+- **RepeatStatement**: Loop structure (`repeat <expression> [ <statements> ]`).
+- **PenStatement**: Pen control (`penup` or `pendown`).
+- **MoveStatement**: Movement commands (`forward`, `backward`, `left`, `right`, `go`).
+- **BinaryOp and UnaryOp**: Binary and unary operations.
+- **Number**: Numeric literals.
+- **Var**: Variables (identifiers starting with a colon `:`).
 
-# test.py
-"""
-This test harness scans for all ".t1" test files in the current directory,
-tokenizes and parses each CHIRONLANG source file, and prints the tokens and
-AST along with the test file name. It uses the tokenizer from token.py (which
-records line and column information) and the AST node classes from ast.py.
-The parser defined here supports the following keywords: if, else, repeat,
-penup, pendown, forward, backward, left, right, go, true, false, input.
+---
 
-Even if an individual test fails, the harness continues processing the remaining tests.
-A summary is printed at the end.
-"""
+### **3. `test.py`**
+
+The `test.py` script serves as a **test harness** for the CHIRONLANG compiler. It performs the following tasks:
+1. Scans the current directory for all `.t1` test files.
+2. Tokenizes and parses each CHIRONLANG source file using the tokenizer from `token.py` and the AST generator from `ast.py`.
+3. Prints the tokens and AST for each test file, along with the test file name.
+4. Continues processing even if an individual test fails, providing a summary at the end.
+
+#### **Supported Keywords**
+The parser supports the following keywords:
+```
+if, else, repeat, penup, pendown, forward, backward,
+left, right, go, true, false, input
+```
+
+#### **Error Handling**
+- If a test file fails during tokenization or parsing, the error is reported, and the harness continues processing the remaining files.
+- A summary of all tests (passed/failed) is printed at the end.
+
+---
+
+### **How to Use**
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/lohitpt252003/COMPILERS.git
+   cd COMPILERS
+   ```
+
+2. Place your `.t1` test files in the same directory as the scripts.
+
+3. Run the test harness:
+   ```bash
+   python test.py
+   ```
+
+4. Review the output:
+   - Tokens and AST for each test file will be printed.
+   - A summary of passed and failed tests will be displayed.
+
+---
